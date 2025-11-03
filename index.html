@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOPCHAN</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="icon" href="https://www.vhv.rs/dpng/f/416-4163874_ecommerce-png.png" type="image/png">
+</head>
+<body>
+    <div class="loader" id="loader"></div>
+    <div class="toast-container"></div>
+    <div class="header d-flex justify-content-between bg-dark p-1  fs-5 fw-bold">
+        <div class="logo px-3 py-2">
+            <img src="./media/logo.png" height="40" alt="">
+            <span class="text-secondary">SHOPCHAN</span>
+        </div>
+        <div class="header-items d-flex justify-content-between p-2 ">
+            <button class="btn btn-dark fs-5 fw-bold"><a href="./index.html">HOME</a></button>
+            <button class="btn btn-dark fs-5 fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</button>
+            <button class="btn btn-dark fs-5 fw-bold" data-bs-toggle="modal"
+            data-bs-target="#signInModal">SIGN UP</button>
+            <button class="btn btn-dark fs-5 fw-bold" data-bs-toggle="modal" data-bs-target="#cartModal">CART</button>
+        </div>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="text-white fs-3 py-3"><i class="bi bi-list"></i></label>
+        <div class="menu-container">
+            <button class="btn btn-dark"><a href="./index.html">HOME</a></button>
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</button>
+            <button class="btn btn-dark" data-bs-toggle="modal"
+            data-bs-target="#signInModal">SIGN UP</button>
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#cartModal">CART</button>
+        </div>
+    </div>
+
+    <!-- Login modal -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><span class="bi bi-person"></span>USER LOGIN</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal" onclick="clearLogData()"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt><label for="loguser">USERNAME</label></dt>
+                        <dd><input type="text" name="username" id="loguser" class="form-control" placeholder="Enter username" autocomplete="off"></dd>
+                        <dt><label for="logpwd">PASSWORD</label></dt>
+                        <dd><input type="password" name="password" id="logpwd" class="form-control" placeholder="Enter Password" autocomplete="off"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary fw-bold" id="loginbtn">LOGIN</button>
+                    <button class="btn btn-success fw-bold" data-bs-toggle="modal" data-bs-target="#signInModal" onclick="clearLogData()">SIGN IN</button>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" onclick="clearLogData()">forgot password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div class="modal fade" id="signInModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><span class="bi bi-person"></span>User SignIn</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal" onclick="clearSignData()"></button>
+                </div>
+                <div class="modal-body">
+                    <dt><label for="signuser">USERNAME</label></dt>
+                    <dd><input type="text" id="signuser" placeholder="Enter Username" class="form-control" autocomplete="off" autofocus></dd>
+                    <dt><label for="signpwd">PASSWORD</label></dt>
+                    <dd><input type="password" id="signpwd" placeholder="Enter Password" class="form-control"></dd>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success fw-bold" id="signbtn" type="button">Sign In</button>
+                    <button class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal" onclick="clearSignData()">Back to Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- forgetPassword modal -->
+    <div class="modal fade" id="forgotPasswordModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Forgot Password</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal" onclick="clearForgotData()"></button>
+                </div>
+                <div class="modal-body">
+                    <dt><label for="forgotuser">USERNAME</label></dt>
+                    <dd><input type="text" id="forgotuser" placeholder="Enter username" class="form-control" autocomplete="off"></dd>
+                    <dt><label for="forgotpwd">PASSWORD</label></dt>
+                    <dd><input type="password" id="forgotpwd" placeholder="Enter password" class="form-control"></dd>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal" onclick="clearForgotData()">Back to Login</button>
+                    <button class="btn btn-success fw-bold" id="forgotpwdbtn">Change Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-image"></div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>You Don't Have Access to Cart</h2>
+                </div>
+                <div class="modal-body d-flex">
+                    <p class="mb-0 py-2 fs-5 fw-bold"><span class="text-success">LOGIN</span>&nbsp;OR &nbsp;</p>
+                    <p class="mb-0 py-2 fs-5 fw-bold"><span class="text-danger">SIGN UP</span>&nbsp; TO GET ACCESS TO CART &nbsp;</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</button>
+                    <button class="btn btn-success fw-bold" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN UP</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
