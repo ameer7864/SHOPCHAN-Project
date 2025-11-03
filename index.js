@@ -1,4 +1,4 @@
-// let userUrl = "http://localhost:3000/users"
+let userUrl = "http://localhost:3000/users"
 let apiUrl = "https://dummyjson.com/products";
 
 let signbtn = document.getElementById("signbtn");
