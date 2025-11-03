@@ -1,4 +1,4 @@
-let userUrl = "http://localhost:3000/users"
+let userUrl = "https://js-project-data.onrender.com/users"
 let apiUrl = "https://dummyjson.com/products";
 
 let signbtn = document.getElementById("signbtn");
@@ -33,12 +33,6 @@ signbtn.addEventListener("click", async () => {
     let signuser = document.getElementById("signuser").value;
     let signpwd = document.getElementById("signpwd").value;
     let users = await getUsers();
-    // let user = users.filter(obj => obj.user == signuser.trim().toLowerCase());
-    // for(var obj in users){
-    //     if(users[obj].user == signuser.trim().toLowerCase()){
-    //         var user = users[obj];
-    //     }
-    // }
     var user;
     users.forEach(obj => {
         if (obj.user == signuser.trim().toLowerCase()) {
